@@ -121,13 +121,12 @@ body::before {
     display: inline;
 }
 
-@media (max-width: 768px) {
-  .flipbook {
-    transform: scale(0.9);
-    transform-origin: top center;
-  }
+.flipbook-wrapper {
+  margin: auto;
+  display: block;
+  overflow: hidden;
+}
 
-  body {
-    overflow-x: auto;
-  }
+body {
+  overflow: auto;
 }
