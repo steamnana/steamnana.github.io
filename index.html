@@ -152,35 +152,13 @@
     <script src="jquery.js"></script>
     <script src="turn.js"></script>
     <script>
-      $(".flipbook").turn();
+      $(".flipbook").turn({
+        width: 1000,
+        height: 600,
+        autocenter: true
+      });
     </script>
   </div>
-  <script>
-    function resizeFlipbook() {
-      const flipbook = document.querySelector('.flipbook');
-      const wrapper = document.querySelector('.flipbook-wrapper');
-
-      const windowW = window.innerWidth;
-      const windowH = window.innerHeight;
-
-      const baseW = 1000;
-      const baseH = 600;
-
-      const scale = Math.min(windowW / baseW, windowH / baseH);
-
-      flipbook.style.transform = `scale(${scale})`;
-      flipbook.style.transformOrigin = 'top left';
-
-      wrapper.style.justifyContent = 'flex-start';
-      wrapper.style.alignItems = 'flex-start';
-      wrapper.style.paddingLeft = `${(windowW - baseW * scale) / 2}px`;
-      wrapper.style.paddingTop = `${(windowH - baseH * scale) / 2}px`;
-    }
-
-    window.addEventListener('resize', resizeFlipbook);
-    window.addEventListener('DOMContentLoaded', resizeFlipbook);
-  </script>
-
 
 </body>
 
