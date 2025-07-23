@@ -156,21 +156,31 @@
     </script>
   </div>
   <script>
-    function scaleFlipbook() {
-      const baseWidth = 1000;
-      const baseHeight = 600;
-      const scaleW = window.innerWidth / baseWidth;
-      const scaleH = window.innerHeight / baseHeight;
-      const scale = Math.min(scaleW, scaleH);
+    function resizeFlipbook() {
+      const flipbook = document.querySelector('.flipbook');
       const wrapper = document.querySelector('.flipbook-wrapper');
-      wrapper.style.transform = 'scale(' + scale + ')';
-      wrapper.style.transformOrigin = 'top center';
-      wrapper.style.width = baseWidth + 'px';
-      wrapper.style.height = baseHeight + 'px';
+
+      const windowW = window.innerWidth;
+      const windowH = window.innerHeight;
+
+      const baseW = 1000;
+      const baseH = 600;
+
+      const scale = Math.min(windowW / baseW, windowH / baseH);
+
+      flipbook.style.transform = `scale(${scale})`;
+      flipbook.style.transformOrigin = 'top left';
+
+      wrapper.style.justifyContent = 'flex-start';
+      wrapper.style.alignItems = 'flex-start';
+      wrapper.style.paddingLeft = `${(windowW - baseW * scale) / 2}px`;
+      wrapper.style.paddingTop = `${(windowH - baseH * scale) / 2}px`;
     }
-    window.addEventListener("resize", scaleFlipbook);
-    window.addEventListener("DOMContentLoaded", scaleFlipbook);
-</script>
+
+    window.addEventListener('resize', resizeFlipbook);
+    window.addEventListener('DOMContentLoaded', resizeFlipbook);
+  </script>
+
 
 </body>
 
