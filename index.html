@@ -153,6 +153,31 @@
   <script>
     $(".flipbook").turn();
   </script>
+  
+  <script>
+    function isMobileDevice() {
+      return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    if (isMobileDevice()) {
+      const warning = document.createElement('div');
+      warning.innerText = '⚠️ เว็บไซต์นี้ยังไม่เหมาะกับการใช้งานบนมือถือ แนะนำให้เปิดบนคอมพิวเตอร์';
+      warning.style.position = 'fixed';
+      warning.style.bottom = '0';
+      warning.style.left = '0';
+      warning.style.right = '0';
+      warning.style.background = 'rgba(255, 200, 0, 0.95)';
+      warning.style.color = '#000';
+      warning.style.padding = '10px';
+      warning.style.textAlign = 'center';
+      warning.style.zIndex = '9999';
+      warning.style.fontSize = '16px';
+      warning.style.fontFamily = 'sans-serif';
+
+      document.body.appendChild(warning);
+    }
+</script>
+
 </body>
 
 </html>
